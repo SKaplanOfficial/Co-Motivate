@@ -1,0 +1,53 @@
+<% if logged_in? %>
+    <h1>You are logged in as <%= current_user.username %></h1>
+    <%= link_to "Log Out", sessions_path, method: :delete %>
+<% else %>
+    <header>
+        <img src="https://designshack.net/wp-content/uploads/placehold.jpg" />
+        <div id="login-signup">
+            <%= link_to "Log In", login_path %>
+            <%= link_to "Sign Up", signup_path %>
+            <%= link_to "Continue Anonymously" %>
+            You won't be able to challenge others without logging in.
+        </div>
+    </header>
+
+    <main>
+        <section id="app-overview">
+        <article id="app-description">
+            <header>What is Co-Motivate?</header>
+            <p>Co-Motivate is a thing that does things.</p>
+        </article>
+
+        <article id="app-usecases">
+            <header>Use Cases</header>
+            <p>Some people might use this.</p>
+        </article>
+
+        <article id="app-teaser">
+            <header>Preview</header>
+            <p>Images/slideshow of example challenges & UI</p>
+        </article>
+        </section>
+
+        <div id="">
+    </main>
+
+    <footer>
+        <div id="footer-links">
+            <div id="footer-aboutlinks">
+                <%= link_to "Privacy Policy" %>
+                <%= link_to "Cookie Policy" %>
+                <%= link_to "How Co-Motivate Works" %>
+            </div>
+
+            <div id="footer-sociallinks">
+                <%= link_to "LinkedIn" %>
+                <%= link_to "DevPost" %>
+                <%= link_to "GitHub" %>
+            </div>
+        </div>
+
+        <div id="footer-copyright">&copy; Avery Gosselin and Stephen Kaplan 2021</div>
+    </footer>
+<% end %>

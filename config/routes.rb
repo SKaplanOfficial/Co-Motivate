@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
     resources :challenges
   end
-  
+
   resources :games
   resources :challenges
   resources :goals
@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   delete '/sessions', to: 'sessions#destroy'
 
   get '/newmatch', to: 'games#new'
+  get '/challenges', to: 'challenges#forum'
 end

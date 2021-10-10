@@ -1,13 +1,19 @@
 class ChallengesController < ApplicationController
     def new
+        @challenge = Challenge.new
     end
 
-    def show
+    def forum
     end
 
-    def update
+    def create
+        @challenge = Challenge.new(challenge_params)
+        if true
+            redirect_to @challenge
+        end
     end
 
-    def destroy
+    def challenge_params
+        params.require(:challenge).permit(:cat_seed, :topic_seed, :type_seed, :text, :discussion)
     end
 end

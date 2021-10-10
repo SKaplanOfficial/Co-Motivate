@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   delete '/sessions', to: 'sessions#destroy'
+
+  get '/challenges', to: 'challenges#forum'
 end

@@ -1,3 +1,74 @@
 // Place all the styles related to the Challenges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+:root {
+    --ourRed: #9e0530;
+    --ourBlue: #3933d1;
+    --ourYellow: #F6FF00;
+    --ourGrey: #FFFFFF3A;
+    --font: Helvetica, sans-serif;
+}
+
+.top-content {
+    display: inline-flex;
+}
+
+.title {
+    color: white;
+    font-size: 40px;
+}
+
+.discussion {
+    width: 60%;
+    margin: auto;
+    align-content: flex-start;
+}
+.text {
+    border-radius: 15px;
+    padding: 1em;
+    margin-top: 1em;
+    background-color: var(--ourGrey);
+    text-align: center
+}
+.challenge {
+    margin: auto;
+    width: 100%;
+}
+
+.comments {
+    margin: 1em auto;
+    width: 100%;
+    padding: .5em;
+    background-color: var(--ourGrey);
+}
+.comment {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.icon-area {
+    float: right;
+}
+.icon {
+    width: 2em;
+    height: 2em;
+}
+
+
+.comment .comment {
+    width: 90%;
+    float: right;
+    padding-right: 0px;
+}
+
+.back-button {
+    width: 20%;
+    padding: .25em;
+    margin: 2em;
+    background-color: var(--ourBlue);
+    text-align: center;
+    border-radius: 15px;
+}
+.back-button:hover {
+    filter: brightness(150%);
+}

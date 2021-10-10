@@ -1,0 +1,49 @@
+<h1>
+    Settings For <%= @user.username %>
+</h1>
+
+<%= form_for @user do |f| %>
+    <section id="settings-username-password">
+        <header>Username and Password</header>
+        <%= f.label :username %>
+        <%= f.text_field :username %><br>
+
+        <%= f.label "Current Password" %>
+        <%= f.password_field :password %><br>
+
+        <%= f.label :new_password %>
+        <%= f.password_field :new_password %><br>
+
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %><br>
+    </section>
+
+    <section id="settings-icons-colors">
+        <header>Icons and Colors</header>
+        <%= f.label :icon %>
+        <%= f.select :icon, ['😀', '😍', '😎', '😜', '👾', '🤖']%><br>
+
+        <%= f.label :message_color %>
+        <%= f.select :message_color, ['Red', 'Pink', 'Green', 'Cyan', 'Blue', 'Orange', 'Yellow']%><br>
+    </section>
+
+    <section id="settings-challenge-prefs">
+        <header>Challenge Type Preference</header>
+
+        <%= f.label "Short (~15 minute) Challenges" %>
+        <%= f.check_box :pref_short_challenges %><br>
+
+        <%= f.label "Long (1+ hour) Challenges" %>
+        <%= f.check_box :pref_long_challenges %><br>
+
+        <%= f.label "Topic-Focused Challenges" %>
+        <%= f.check_box :pref_topic_challenges %><br>
+
+        <%= f.label "Category-Focused Challenges" %>
+        <%= f.check_box :pref_category_challenges %><br>
+    </section>
+
+    Seed: <%= @user.pref_seed %><br>
+
+    <%= f.submit "Save Changes" %>
+<% end %>

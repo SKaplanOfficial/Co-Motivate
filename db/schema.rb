@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_191250) do
+ActiveRecord::Schema.define(version: 2021_10_10_013111) do
 
   create_table "challenges", force: :cascade do |t|
     t.text "body"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 2021_10_09_191250) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "icon"
+    t.string "message_color"
+    t.boolean "pref_short_challenges"
+    t.boolean "pref_long_challenges"
+    t.boolean "pref_topic_challenges"
+    t.boolean "pref_category_challenges"
+    t.integer "pref_seed"
   end
 
   add_foreign_key "comments", "comments"

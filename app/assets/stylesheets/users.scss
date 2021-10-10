@@ -1,3 +1,65 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+:root {
+    --ourRed: #9e0530;
+    --ourBlue: #3933d1;
+    --ourYellow: #F6FF00;
+    --font: Helvetica, sans-serif;
+}
+html {
+    background: linear-gradient(180deg, #113574 0%, hsl(348, 69%, 8%) 100%);
+}
+p {
+    color: white;
+    font-family: var(--font);
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.header {
+    text-align: right;
+}
+.red {
+    background-color: var(--ourRed);
+}
+.blue {
+    background-color: var(--ourBlue);
+}
+.yellow {
+    background-color: var(--ourYellow);
+}
+.black-text {
+    color: black;
+}
+
+.user-info {
+    margin: 0 auto;
+}
+.user-pic {
+    height: 10em;
+    width: 10em;
+    background-color: grey;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+.user-name {
+    text-align: center;
+}
+
+.spacer {
+    height: 3em;
+}
+
+.button {
+    margin: 1em auto;
+    padding: 1em;
+    width: 60%;
+    border-radius: 15px;
+    text-align: center;
+}
+.button:hover {
+    filter: brightness(150%);
+}

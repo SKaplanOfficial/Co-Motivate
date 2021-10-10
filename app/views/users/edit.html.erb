@@ -66,5 +66,8 @@
         </div>
     </section>
 
-    <%= f.submit "Save Changes", class: "button" %>
+    <div class="buttons">
+        <%= f.submit "Save Changes", class: "button" %>
+        <%= link_to "Back to Home", root_path, class: "button-small" %>
+    </div>
 <% end %>

@@ -8,15 +8,19 @@
             <p class="user-name"><%= current_user.username %></p>
         </div>
 
-        <%= link_to "Log Out", sessions_path, method: :delete %>
-
         <div class="spacer"></div>
 
-        <%= link_to "Find A Challenge", new_game_path, class: "button red" %>
+        <div class="buttons">
 
-        <%= link_to "Manage Account", [:edit, current_user], class: "button blue" %>
+            <%= link_to "Find A Challenge!", new_game_path, class: "button red" %>
 
-        <%= link_to "View Past Challenges", games_path, class: "button yellow" %>
+            <%= link_to "Manage Account", [:edit, current_user], class: "button blue" %>
+
+            <%= link_to "View Past Challenges", games_path, class: "button yellow black-text" %>
+
+            <%= link_to "Log Out", sessions_path, class: "button-small button-transparent", method: :delete %>
+
+        </div>
 
         <div class="spacer"></div>
 
@@ -35,8 +39,8 @@
     <main>
         <section id="app-overview">
         <article id="app-description">
-            <header>What is Co-Motivate?</header>
-            <p>Co-Motivate is an application for motivating people to work towards their goals through small, competitive challenges!</p>
+            <header>What is Ziele?</header>
+            <p>Ziele is an application for motivating people to work towards their goals through small, competitive challenges!</p>
             <p>We hope that people will be inspired to work toward their larger goals from the sense of achievement gained through completing our challenges, and even if they dont, finish they may discuss any issues and approaches with other users in our challenge-specific chat forums.</p>
         </article>
 
@@ -57,7 +61,7 @@
 
         <article id="why-account">
             <header>Why Have an Account?</header>
-            <p>We hope that users will use this tool to not just crush challenges on their own, but help out others too! To do this, we want to remember all the challenges you have completed so that you can participate in the chat forums for them and help out your peers. We hope that you understand, and that you will take the time to set up your own account and participate in the Co-Motivate Community.</p>
+            <p>We hope that users will use this tool to not just crush challenges on their own, but help out others too! To do this, we want to remember all the challenges you have completed so that you can participate in the chat forums for them and help out your peers. We hope that you understand, and that you will take the time to set up your own account and participate in the Ziele Community.</p>
         </article>
         </section>
 
@@ -69,7 +73,7 @@
             <div id="footer-aboutlinks">
                 <%= link_to "Privacy Policy" %>
                 <%= link_to "Cookie Policy" %>
-                <%= link_to "How Co-Motivate Works" %>
+                <%= link_to "How Ziele Works" %>
             </div>
 
             <div id="footer-sociallinks">

@@ -44,12 +44,14 @@ a {
 .user-pic {
     height: 10em;
     width: 10em;
-    background-color: grey;
+    background-color: #80808080;
     border-radius: 100%;
     margin: 0 auto;
 }
 .user-name {
-    text-align: center;
+    text-align: center; 
+    font-size: 20px;
+    color: lightgrey;
 }
 
 .spacer {
@@ -73,27 +75,38 @@ label {
     padding: 1em;
 }
 
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
 .button {
     margin: 1em auto;
-    padding: 1em;
+    padding: 1.5em;
     width: 60%;
-    border-radius: 15px;
+    border: 1px solid #80808080;
+    border-radius: 10px;
     text-align: center;
 }
 .button:hover {
     filter: brightness(150%);
-    float: middle;
-    padding: 1em;
-    width: 20%;
-    background-color: var(--ourBlue);
-    color: white;
-    border-radius: 15px;
 }
 
-#id {
-    color: red;
+.button-small {
+    margin: 1em auto;
+    padding: 1.5em;
+    width: 30%;
+    border: 1px solid #80808080;
+    border-radius: 10px;
+    text-align: center;
 }
 
+.button-transparent {
+    background-color: none;
+}
+.button-transparent:hover {
+    background-color: #80808080;
+}
 #change-password-form {
     display: none;
 }

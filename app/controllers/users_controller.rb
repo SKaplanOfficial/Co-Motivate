@@ -27,11 +27,15 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
 
-        if @user.authenticate(user_params[:password])
-            if user_params[:new_password] == user_params[:password_confirmation]
-                puts "Updating user password..."
-                @user.password = user_params[:new_password]
-               # @user.password_digest = BCrypt::Password.create(user_params[:new_password])
+        @user.username = user_params[:username]
+
+        if user_params[:new_password] != ""
+            if @user.authenticate(user_params[:password])
+                if user_params[:new_password] == user_params[:password_confirmation]
+                    puts "Updating user password..."
+                    @user.password = user_params[:new_password]
+                    # @user.password_digest = BCrypt::Password.create(user_params[:new_password])
+                end
             end
         end
 
@@ -45,6 +49,14 @@ class UsersController < ApplicationController
             puts "Updating user challenge type preference..."
             @user.pref_seed = new_pref_seed
         end
+
+        @user.icon = user_params[:icon]
+        @user.message_color = user_params[:message_color]
+
+        @user.pref_short_challenges = user_params[:pref_short_challenges]
+        @user.pref_long_challenges = user_params[:pref_long_challenges]
+        @user.pref_topic_challenges = user_params[:pref_topic_challenges]
+        @user.pref_category_challenges = user_params[:pref_category_challenges]
 
         @user.save!
         render :edit

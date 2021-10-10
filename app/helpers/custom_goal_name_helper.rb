@@ -1,0 +1,2 @@
+module CustomGoalNameHelper
+end

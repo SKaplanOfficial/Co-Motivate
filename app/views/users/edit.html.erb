@@ -7,16 +7,19 @@
         <div class="section_content">
             <header>Username and Password</header>
             <%= f.label :username %>
-            <%= f.text_field :username %><br>
+            <%= f.text_field :username, value: current_user.username %><br>
 
-            <%= f.label "Current Password" %>
-            <%= f.password_field :password %><br>
+            <div id="change-password-toggle">Change password</div>
+            <div id="change-password-form">
+                <%= f.label "Current Password" %>
+                <%= f.password_field :password %><br>
 
-            <%= f.label :new_password %>
-            <%= f.password_field :new_password %><br>
+                <%= f.label :new_password %>
+                <%= f.password_field :new_password %><br>
 
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %><br>
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %><br>
+            </div>
         </div>
     </section>
 
@@ -24,10 +27,24 @@
         <div class="section_content">
             <header>Icons and Colors</header>
             <%= f.label :icon %>
-            <%= f.select :icon, ['😀', '😍', '😎', '😜', '👾', '🤖']%><br>
+            <%= f.select :icon, ['😀', '😍', '😎', '😜', '👾', '🤖'], value: current_user.icon %><br>
 
             <%= f.label :message_color %>
-            <%= f.select :message_color, ['Red', 'Pink', 'Green', 'Cyan', 'Blue', 'Orange', 'Yellow']%><br>
+            <%= f.select :message_color, ['Red', 'Pink', 'Green', 'Cyan', 'Blue', 'Orange', 'Yellow'], value: current_user.message_color %><br>
+        </div>
+    </section>
+
+    <section id="settings-goals">
+        <div class="section_content">
+            <header>Goals</header>
+            <% current_user.goals.each do |goal| %>
+                <li>
+                <a href="<%= goal_path(challenge) %>">
+                    <%= goal.body %>
+                </a>
+                </li>
+            <% end %>
+            <%= link_to "Add Goal", new_goal_path %>
         </div>
     </section>
 
@@ -36,16 +53,16 @@
             <header>Challenge Type Preference</header>
 
             <%= f.label "Short (~15 minute) Challenges" %>
-            <%= f.check_box :pref_short_challenges %><br>
+            <%= f.check_box :pref_short_challenges, value: current_user.pref_short_challenges %><br>
 
             <%= f.label "Long (1+ hour) Challenges" %>
-            <%= f.check_box :pref_long_challenges %><br>
+            <%= f.check_box :pref_long_challenges, value: current_user.pref_long_challenges %><br>
 
             <%= f.label "Topic-Focused Challenges" %>
-            <%= f.check_box :pref_topic_challenges %><br>
+            <%= f.check_box :pref_topic_challenges, value: current_user.pref_topic_challenges %><br>
 
             <%= f.label "Category-Focused Challenges" %>
-            <%= f.check_box :pref_category_challenges %><br>
+            <%= f.check_box :pref_category_challenges, value: current_user.pref_category_challenges %><br>
         </div>
     </section>
 

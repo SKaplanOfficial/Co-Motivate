@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         if !!@user && @user.authenticate(params[:password])
             # Redirect on success
             session[:user_id] = @user.id
-            redirect_to @user
+            redirect_to root_path
         else
             # Display error on failure
             message = "Incorrect username or password!"

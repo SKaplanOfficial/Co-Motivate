@@ -1,0 +1,2 @@
+class CustomGoalNameController < ApplicationController
+end

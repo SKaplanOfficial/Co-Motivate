@@ -12,7 +12,6 @@ module GamesHelper
                             'type_seed' => 1010,
                         }
                     },
-                    ''
                 },
             },
             'Gardening' => {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_10_040956) do
+ActiveRecord::Schema.define(version: 2021_10_10_082405) do
 
   create_table "challenges", force: :cascade do |t|
     t.text "body"
@@ -33,17 +33,38 @@ ActiveRecord::Schema.define(version: 2021_10_10_040956) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "custom_goal_names", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_custom_goal_names_on_user_id"
+  end
+
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "goals", force: :cascade do |t|
+    t.text "body"
+    t.integer "category_seed"
+    t.integer "topic_seed"
+    t.integer "type_seed"
+    t.integer "user_id", null: false
+    t.integer "custom_goal_name_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["custom_goal_name_id"], name: "index_goals_on_custom_goal_name_id"
+    t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
+  create_table "matches", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "matches", force: :cascade do |t|
+  create_table "matchmakers", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -70,4 +91,7 @@ ActiveRecord::Schema.define(version: 2021_10_10_040956) do
   add_foreign_key "challenges", "users"
   add_foreign_key "comments", "comments"
   add_foreign_key "comments", "users"
+  add_foreign_key "custom_goal_names", "users"
+  add_foreign_key "goals", "custom_goal_names"
+  add_foreign_key "goals", "users"
 end

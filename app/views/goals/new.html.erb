@@ -1,0 +1,51 @@
+<nav id="top-nav">
+<%= link_to "Back", :back %>
+<p>Add New Goal</p>
+</nav>
+
+<%= form_for @goal do |f| %>
+
+    <section id="goal-pick-category">
+        <header>Pick a category:</header>
+        <%= select_tag :category_selection, options_for_select(category_list), include_blank: true %>
+    </section>
+
+    <section id="goal-pick-topic">
+        <header>Pick a topic:</header>
+        <%= select_tag :topic_selection, options_for_select(topic_list("Programming")), include_blank: true %>
+    </section>
+
+    <section id="goal-pick-goal">
+        <header>Pick a goal:</header>
+        <%= select_tag :body, options_for_select(goal_list("Programming", "Web Development")), include_blank: true, id: 'goal-selection' %>
+    </section>
+
+    <%= f.hidden_field :category_seed, id: 'goal-cat-seed' %>
+    <%= f.hidden_field :topic_seed, id: 'goal-topic-seed' %>
+    <%= f.hidden_field :type_seed, id: 'goal-type-seed' %>
+
+    <%= f.fields_for :custom_goal_name do |custom_name| %>
+        <%= custom_name.label "Add a custom name to this goal" %>
+        <%= custom_name.text_field :name %><br>
+    <% end %>
+
+    <%= f.submit "Add Goal" %>
+<% end %>
+
+<footer>
+    <div id="footer-links">
+        <div id="footer-aboutlinks">
+            <%= link_to "Privacy Policy" %>
+            <%= link_to "Cookie Policy" %>
+            <%= link_to "How Co-Motivate Works" %>
+        </div>
+
+        <div id="footer-sociallinks">
+            <%= link_to "LinkedIn" %>
+            <%= link_to "DevPost" %>
+            <%= link_to "GitHub" %>
+        </div>
+    </div>
+
+    <div id="footer-copyright">&copy; Avery Gosselin and Stephen Kaplan 2021</div>
+</footer>

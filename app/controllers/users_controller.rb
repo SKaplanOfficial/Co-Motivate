@@ -20,9 +20,39 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
 
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.find(params[:id])
+
+        if @user.authenticate(user_params[:password])
+            if user_params[:new_password] == user_params[:password_confirmation]
+                puts "Updating user password..."
+                @user.password = user_params[:new_password]
+               # @user.password_digest = BCrypt::Password.create(user_params[:new_password])
+            end
+        end
+
+        seed1 = user_params[:pref_short_challenges].to_i
+        seed2 = user_params[:pref_long_challenges].to_i << 1
+        seed3 = user_params[:pref_topic_challenges].to_i << 2
+        seed4 = user_params[:pref_category_challenges].to_i << 3
+
+        new_pref_seed = (seed1 | seed2 | seed3 | seed4).to_i
+        if new_pref_seed != @user.pref_seed
+            puts "Updating user challenge type preference..."
+            @user.pref_seed = new_pref_seed
+        end
+
+        @user.save!
+        render :edit
+    end
+
     private
 
     def user_params
-        params.require(:user).permit(:username, :password, :password_confirmation)
+        params.require(:user).permit(:username, :password, :password_confirmation, :new_password, :icon, :message_color, :pref_short_challenges, :pref_long_challenges, :pref_topic_challenges, :pref_category_challenges, :pref_seed)
     end
 end

@@ -48,11 +48,6 @@ ActiveRecord::Schema.define(version: 2021_10_10_040956) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "matchmakers", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "policies", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

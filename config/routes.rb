@@ -3,10 +3,18 @@ Rails.application.routes.draw do
 
   root 'sessions#home'
   resources :sessions
-  resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
+  resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
+    resources :challenges
+  end
+  
+  resources :games
+  resources :challenges
+  resources :goals
 
-  get 'signup', to: 'users#new'
+  get '/signup', to: 'users#new'
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   delete '/sessions', to: 'sessions#destroy'
+
+  get '/newmatch', to: 'games#new'
 end

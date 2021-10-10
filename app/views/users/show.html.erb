@@ -9,23 +9,11 @@
 
     <div class="spacer"></div>
 
-    <a href="test.com">
-        <div class="button red" href="test.com">
-            <p>Find A Challenge</p>
-        </div>
-    </a>
+    <%= link_to "Find A Challenge", new_game_path, class: "button red" %>
 
-    <a href="test.com">
-        <div class="button blue">
-            <p>Manage Account</p>
-        </div>
-    </a>
+    <%= link_to "Manage Account", edit_user_path, class: "button blue" %>
 
-    <a href="test.com">
-        <div class="button yellow">
-            <p class="black-text">View Past Challenges</p>
-        </div>
-    </a>
+    <%= link_to "View Past Challenges", games_path, class: "button yellow" %>
 
     <div class="spacer"></div>
 

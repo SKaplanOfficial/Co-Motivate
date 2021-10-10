@@ -1,4 +1,4 @@
-class ChallengesController < ApplicationController
+class GamesController < ApplicationController
     def new
     end
 
@@ -6,6 +6,9 @@ class ChallengesController < ApplicationController
     end
 
     def update
+    end
+
+    def view_history
     end
 
     def destroy

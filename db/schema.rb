@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_191250) do
+ActiveRecord::Schema.define(version: 2021_10_10_040956) do
 
   create_table "challenges", force: :cascade do |t|
     t.text "body"
     t.integer "category_seed"
     t.integer "topic_seed"
     t.integer "type_seed"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -31,13 +33,46 @@ ActiveRecord::Schema.define(version: 2021_10_09_191250) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "games", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "matchmakers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "policies", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "icon"
+    t.string "message_color"
+    t.boolean "pref_short_challenges"
+    t.boolean "pref_long_challenges"
+    t.boolean "pref_topic_challenges"
+    t.boolean "pref_category_challenges"
+    t.integer "pref_seed"
   end
 
+  add_foreign_key "challenges", "users"
   add_foreign_key "comments", "comments"
   add_foreign_key "comments", "users"
 end
